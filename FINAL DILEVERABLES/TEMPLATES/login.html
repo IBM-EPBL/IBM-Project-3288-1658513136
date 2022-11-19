@@ -9,11 +9,11 @@
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+<!link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 
 <style>
 .header {
@@ -33,7 +33,7 @@
 			height:8%;
 			text-align: center;
 		}
-		.topnav {
+.topnav {
   overflow: hidden;
   background-color: #333;
 }
@@ -94,6 +94,7 @@ button {
   border: none;
   cursor: pointer;
   width: 100%;
+  font-weight:bold;
 }
 
 button:hover {
@@ -144,33 +145,30 @@ span.psw {
 
 <div class="header">
  <div style="width:50%;float:left;font-size:2vw;text-align:left;color:white; padding-top:1%">Virtual Eye</div>
-  <div class="topnav-right" >
+  <div class="topnav-right" style="padding-top:0.5%;">
 
-    <a  href="{{ url_for('home')}}">Home</a>
-    <a href="{{ url_for('login')}}">Login</a>
-    <a class="active"  href="{{ url_for('register')}}">Register</a>
+    <a  href="{{ url_for('index')}}">Home</a>
+    <a class="active" href="{{ url_for('login')}}">Login</a>
+    <a  href="{{ url_for('register')}}">Register</a>
 
   </div>
 </div>
 <div id="login" class="login">
 
 
-	<form action="{{url_for('afterreg')}}" method="post">
+	<form action="{{url_for('afterlogin')}}" method="post">
 		<div class="imgcontainer">
 			<img style="" src="https://cdn.digitalhealth.net/wp-content/uploads/2017/03/eye_image_generic_555.jpg" alt="Avatar" class="avatar">
 		</div>
 
 		<div class="container">
-			<input type="text" placeholder="Enter Name" name="name" required><br>
-			<input type="email" placeholder="Enter Email ID" name="_id" required><br>
+			<input type="email" placeholder="Enter registered email ID" name="_id" required><br>
+
 			<input type="password" placeholder="Enter Password" name="psw" required>
 
-			<button type="submit">Register</button><br>
+			<button type="submit">Login</button><br>
     {{pred}}
 		</div>
-		<div class="container" style="background-color:#f1f1f1">
-    <div class="psw">Already have an account?&nbsp; &nbsp;<a href="{{ url_for('login') }}">Login</a></div	>
-  </div>
 	</form>
 
 </div>
